@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if 'инженер' in prof or 'строитель' in prof %}
+    <h2>Инженерные тренажёры</h2>
+    <img class="img-fluid" src="https://www.barque.ru/img/articles3/ris_4_kinematicheskaya_shema_trenazhera_balans.jpg" alt="">
+    {% else %}
+    <h2>Научные тренажёры</h2>
+    <img class="img-fluid" src="https://cdn.vmasshtabe.ru/uploads/2014/02/143157-vms-05.438.00.000-SBTrenazher2.dlya-slayda-cdw-scaled.jpg" alt="">
+    {% endif %}
+{% endblock %}
