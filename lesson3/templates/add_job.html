@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% macro print_errors(error) %}
+    {% for error in errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+{% endmacro %}
+
+
+{% macro form_field(field)%}
+    {% for field in fields %}
+        <p>
+            {{ field.label}}<br>
+            {{field(class="form-control")}} <br>
+            {{print_errors(field.errors)}}
+        </p>
+    {% endfor %}
+{% endmacro %}
+{% block content %}
+    <h1>Добавление работы</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.job.label }}<br>
+            {{ form.job(class="form-control") }}<br>
+            {{ print_errors(form.job.errors) }}
+        </p>
+        <p>
+            {{ form.work_size.label }}<br>
+            {{ form.work_size(class="form-control") }}<br>
+            {{ print_errors(form.work_size.errors) }}
+        </p>
+        <p>
+            {{ form.collaborators.label }}<br>
+            {{ form.collaborators(class="form-control") }}<br>
+            {{ print_errors(form.collaborators.errors) }}
+        </p>
+        <p>
+            {{ form.start_date.label }}<br>
+            {{ form.start_date(class="form-control") }}<br>
+            {{ print_errors(form.start_date.errors) }}
+        </p>
+        <p>
+            {{ form.end_date.label }}<br>
+            {{ form.end_date(class="form-control") }}<br>
+            {{ print_errors(form.end_date.errors) }}
+        </p>
+        <p>{{ form.is_finished }} {{ form.is_finished.label }}</p>
+        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        <div>{{ message }}</div>
+    </form>
+{% endblock %}
