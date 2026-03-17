@@ -1,5 +1,5 @@
-from data.users import User
-import data.db_session as db_session
+from restapi2.data.users import User
+import restapi2.data.db_session as db_session
 
 from sqlalchemy import select
 

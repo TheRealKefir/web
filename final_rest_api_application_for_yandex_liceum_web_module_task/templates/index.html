@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Журнал работ</h1>
+{% for item in jobs%}
+<div>
+    <h2>Работа % {{ item.id }}</h2>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Название</th>
+      <th scope="col">Ответственный</th>
+      <th scope="col">Продолжительность</th>
+      <th scope="col">Соучастники</th>
+        <th scope="col">Завершено</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ item.job }}</td>
+      <td>{{ item.user.name }}</td>
+      <td>{{ item.work_size }}</td>
+        <td>{{ item.collaborators }}</td>
+        <td>{{ item.is_finished }}</td>
+      <td>@mdo</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+{% endfor %}
+{% endblock %}
